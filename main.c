@@ -18,7 +18,7 @@ int main(int argc, char** argv){
 
   glShadeModel(GL_SMOOTH);
  
-  game_time = 100;
+  game_time = 120;
   timer_id = 10;
   rot = 0;
   mod11 = 0,no_mod= 0, mod7 = 0, mod5 = 0, mod4 = 0, mod3 = 0, mod13= 0;

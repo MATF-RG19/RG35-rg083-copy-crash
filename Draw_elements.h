@@ -37,3 +37,5 @@ void finalScore();
 void startGame(void);
 
 void pause_print(void);
+
+void timeCount(void);

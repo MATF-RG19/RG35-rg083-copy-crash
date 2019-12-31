@@ -7,7 +7,7 @@ void on_timer(int value){
     return;
   if(pause !=1){
     if(game_time > 0){
-      game_time -= 0.5;
+      game_time -= 0.1;
       rot +=1;
       if(hours < 2.5){
 	hours+=0.1;
@@ -85,10 +85,11 @@ void on_display(void){
    
       
       
-      if(game_time == 100){
+      if(game_time == 120){
 	startGame();
       }else{
 	if(game_time > 0){
+          timeCount();
 	  Score();
 	}else{
 	  finalScore();
@@ -154,6 +155,7 @@ void on_keyboard(unsigned char key, int x, int y){
       break;
       
       case 'g':
+      case 'G':
 	printf("Pritisnuto je dugne G, mozete poceti sa igrom.\n");
 	if(!timer){
 	  glutTimerFunc(10, on_timer, 0);
@@ -162,6 +164,7 @@ void on_keyboard(unsigned char key, int x, int y){
 	}
 	break;
       case 'p':
+      case 'P':
 	pause = 1;
 	break;
       case 'e':
@@ -220,6 +223,7 @@ void on_keyboard(unsigned char key, int x, int y){
       
 /*Tasteri za kretanje igraca 2(zeleni) - a(levo)d(desno)w(gore)s(dole)*/
       case 'd':
+      case 'D':
 	if(timer == 0){
 	  break;
 	}
@@ -231,6 +235,7 @@ void on_keyboard(unsigned char key, int x, int y){
 	  glutPostRedisplay();
 	}
       break;
+      case 'A':
       case 'a':
 	if(timer == 0){
 	  break;
@@ -243,6 +248,7 @@ void on_keyboard(unsigned char key, int x, int y){
 	  glutPostRedisplay();
 	}
 	break;
+      case 'W':
       case 'w':
 	if(timer == 0){
 	  break;
@@ -256,6 +262,7 @@ void on_keyboard(unsigned char key, int x, int y){
 	}
 	break;
       case 's':
+      case 'S':
 	if(timer == 0){
 	  break;
 	}

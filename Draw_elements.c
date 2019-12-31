@@ -487,13 +487,13 @@ void Gamer2(){
 /*funkcija koja pokazuje koje dugme je za pocetak igrice tj ukljucivanje tajmera*/
 void startGame(void){
 	char tekst1[256], *p1;
-	sprintf(tekst1, "Pritisnite g za pocetak igrice");
+	sprintf(tekst1, "Pritisnite G za pocetak igrice");
 
 	glPushMatrix();
 			glColor3f(1,1,1);
-			glRasterPos3f(1.5,-3,0);
+			glRasterPos3f(2,-3,0);
 			for(p1 = tekst1; *p1!= '\0'; p1++){
-					glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *p1);
+					glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, *p1);
 			}
 	glPopMatrix();
 	  
@@ -504,7 +504,7 @@ void startGame(void){
 void Score(void){
 
 	char tekst1[256], *p1;
-	sprintf(tekst1, "Current score: R:G");
+	sprintf(tekst1, "Current score: G :  R");
 
 	char tekst2[256], *p2;
 	sprintf(tekst2, "%d", red_num);
@@ -513,9 +513,9 @@ void Score(void){
 	sprintf(tekst3, "%d", green_num);
 	glPushMatrix();
 			glColor3f(1,1,1);
-			glRasterPos3f(1.5,-3,0);
+			glRasterPos3f(1.5,-3,0.5);
 			for(p1 = tekst1; *p1!= '\0'; p1++){
-					glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *p1);
+					glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *p1);
 			}
 	glPopMatrix();
 	
@@ -523,9 +523,9 @@ void Score(void){
 	sprintf(tekst23, ":");
 	glPushMatrix();
 			glColor3f(1,1,1);
-			glRasterPos3f(-1.6,-3,0);
+			glRasterPos3f(-1,-3,0);
 			for(p23 = tekst23; *p23!= '\0'; p23++){
-					glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *p23);
+					glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *p23);
 			}
 	glPopMatrix();
 	
@@ -533,16 +533,16 @@ void Score(void){
 			glColor3f(1,1,1);
 			glRasterPos3f(-1.2,-3,0);
 			for(p2 = tekst2; *p2!= '\0'; p2++){
-					glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *p2);
+					glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *p2);
 			}
 	glPopMatrix();
 	
 	
 	glPushMatrix();
 			glColor3f(1,1,1);
-			glRasterPos3f(-1.7,-3,0);
+			glRasterPos3f(-0.6,-3,0);
 			for(p3 = tekst3; *p3!= '\0'; p3++){
-					glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *p3);
+					glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *p3);
 			}
 	glPopMatrix();
 	
@@ -561,7 +561,7 @@ void finalScore(void){
 			glColor3f(1,0,0);
 			glRasterPos3f(1.5,-3,0);
 			for(p1 = tekst1; *p1!= '\0'; p1++){
-					glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *p1);
+					glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *p1);
 			}
 	glPopMatrix();
 	}else if (green_num > red_num){
@@ -573,7 +573,7 @@ void finalScore(void){
 			glColor3f(0,1,0);
 			glRasterPos3f(1.5,-3,0);
 			for(p2 = tekst2; *p2!= '\0'; p2++){
-					glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *p2);
+					glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *p2);
 			}
 	glPopMatrix();
 	}else{
@@ -585,7 +585,7 @@ void finalScore(void){
 			glColor3f(1,1,1);
 			glRasterPos3f(1.5,-3,0);
 			for(p3 = tekst3; *p3!= '\0'; p3++){
-					glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *p3);
+					glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *p3);
 			}
 	glPopMatrix();  
 	}
@@ -597,9 +597,9 @@ void finalScore(void){
 	  
 	glPushMatrix();
 			glColor3f(1,1,1);
-			glRasterPos3f(1.5,-2,0);
+			glRasterPos3f(2,-2,-6);
 			for(p4 = tekst4; *p4!= '\0'; p4++){
-					glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *p4);
+					glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *p4);
 			}
 	glPopMatrix();
 }
@@ -612,8 +612,59 @@ void pause_print(void){
 			glColor3f(1,1,1);
 			glRasterPos3f(1.5,-3,0);
 			for(p1 = tekst1; *p1!= '\0'; p1++){
-					glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *p1);
+					glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *p1);
 			}
 	glPopMatrix();
 	  
+}
+
+void timeCount(void){
+        if(game_time > 0){
+            int help = 0;
+            if(game_time > 60){
+                char tekst2[256], *p2;
+                sprintf(tekst2, "01");
+
+                glPushMatrix();
+                            glColor3f(1,1,1);
+                            glRasterPos3f(1.6,-3,0);
+                            for(p2 = tekst2; *p2!= '\0'; p2++){
+                                            glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, *p2);
+                            }
+                glPopMatrix();	
+            }else {
+                char tekst2[256], *p2;
+                sprintf(tekst2, "00");
+                help=60;
+                glPushMatrix();
+                            glColor3f(1,1,1);
+                            glRasterPos3f(1.6,-3,0);
+                            for(p2 = tekst2; *p2!= '\0'; p2++){
+                                            glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, *p2);
+                            }
+                glPopMatrix();	
+                
+            }
+                char tekst1[256], *p1;
+                sprintf(tekst1, ":");
+
+                glPushMatrix();
+                            glColor3f(1,1,1);
+                            glRasterPos3f(1.2,-3,0);
+                            for(p1 = tekst1; *p1!= '\0'; p1++){
+                                            glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, *p1);
+                            }
+                            
+                glPopMatrix();			
+                char tekst3[256], *p3;
+                sprintf(tekst3, "%d", (int)(game_time-60)+help);
+                glPushMatrix();
+                            glColor3f(1,1,1);
+                            glRasterPos3f(1,-3,0);
+                            for(p3 = tekst3; *p3!= '\0'; p3++){
+                                            glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, *p3);
+                            }			
+
+                glPopMatrix();
+        }
 }
